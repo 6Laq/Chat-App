@@ -45,6 +45,7 @@
 
 <script>
 
+import io from 'socket.io-client'
 import firebase from '../Firebase'
 import router from '../router'
 
@@ -58,7 +59,8 @@ export default {
         data: { type:'', nickname:'', message:'' },
         chats: [],
         errors: [],
-        offStatus: false
+        offStatus: false,
+        socket: io('localhost:3001')
     }
   },
   created () {
@@ -77,6 +79,11 @@ export default {
         item.key = doc.key
         this.chats.push(item)
       });
+    });
+  },
+  mounted() {
+    this.socket.on('MESSAGE', (data) => {
+      this.messages = [...this.messages, data];
     });
   },
   methods: {
