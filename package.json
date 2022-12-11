@@ -10,7 +10,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^6.6.1",
     "nodemon": "^1.19.2",
     "server": "./server",
